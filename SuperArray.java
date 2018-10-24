@@ -16,21 +16,14 @@ public class SuperArray{
     return (data==this.clear());
   }
   public boolean add(String element){
-    if (data[data.length-1] != null){
+    if (data.length == size){
       data.resize();
       data[data.length]=element;
     }
     else {
-      int c = 0;
-      int i = 0;
-      while (i<data.length && c==0){
-        if (data[i]==null){
-          c=i;
-        }
-        i+=1;
-      }
-      data[c]=element;}
+      data[size]=element;
   }
+  return True;}
 
   public String get(int index){
     return data[index];
@@ -41,5 +34,24 @@ public class SuperArray{
     data[index]=element;
     return i;
   }
+  public String toString(){
+    String str='"[';
+    for(int i =0; i<data.length;i++){
+      str+=data[i];
+      if (i != data.length-1){
+      str+=",";}
+    }
+    str+='"]';
+    return str;
+  }
+  public boolean contains(String element){
+    for(int i=0;i<data.length;i++){
+      if (data[i]==element){
+        return True;
+      }
+    }
+    return False;
+  }
+
 
 }
