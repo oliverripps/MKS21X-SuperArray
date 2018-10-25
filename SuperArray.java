@@ -5,6 +5,11 @@ public class SuperArray{
     data = s;
     si = size;
   }
+  public SuperArray(){
+    String[] nums = new String[10];
+    data = nums;
+    size = 0;
+  }
   public void clear(){
     String[] n = new String[size];
     data = n;
@@ -31,29 +36,28 @@ public class SuperArray{
   return true;}
   public String toString(){
     String r = "[";
-    if (size()==0){
-      return "[]";
-    }
+    if (this.size()==0){
+      return "[]";}
     for (int i=0; i<size;i++){
       r+=data[i];
       if (i!=size-1){
-        r+=",";}
+        r+=",";}}
     r+="]";
     return r;
-  }}
+  }
 
   public String toStringDebug(){
     String r = "[";
-    if (size()==0){
+    if (this.size()==0){
       return "[]";
     }
     for (int i=0; i<data.length;i++){
       r+=data[i];
       if (i!=data.length-1){
-        r+=",";}
+        r+=",";}}
     r+="]";
     return r;
-  }}
+  }
 
   public String get(int index){
     if (index < 0 || index >= size()){
