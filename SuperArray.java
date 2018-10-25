@@ -26,14 +26,14 @@ public class SuperArray{
     return true;
   }
   public boolean add(String element){
-    if (data.length == size){
-      this.resize();
-      data[size]=element;
-    }
-    else {
-      data[size]=element;
-  }
-  return true;}
+ 	if (size()== data.length){
+ 	    this.resize();
+ 	}
+ 	size++;
+ 	data[size]=element;
+ 	return true;
+     }
+
   public String toString(){
     String r = "[";
     if (this.size()==0){
