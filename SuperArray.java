@@ -19,6 +19,7 @@ public class SuperArray{
   public void clear(){
     String[] n = new String[size];
     data = n;
+    size=0;
   }
   public int size(){
     return size;
@@ -27,11 +28,11 @@ public class SuperArray{
     return (size==0);
   }
   public boolean add(String element){
- 	if (size()== data.length){
- 	    this.resize();
+ 	if (size == data.length){
+ 	    resize();
  	}
- 	size++;
  	data[size]=element;
+  size++;
  	return true;
      }
 
@@ -49,9 +50,6 @@ public class SuperArray{
 
   public String toStringDebug(){
     String r = "[";
-    if (this.size()==0){
-      return "[]";
-    }
     for (int i=0; i<data.length;i++){
       r+=data[i];
       if (i!=data.length-1){
@@ -74,11 +72,12 @@ public class SuperArray{
   }
 
   private void resize(){
+    int tempsize = size;
     String[] nums = new String[data.length+10];
     for (int i = 0; i < data.length; i++){
 	  nums[i]=data[i];}
     data = nums;
-
+    size = tempsize;
   }}
   /*
   public boolean contains(String element){
