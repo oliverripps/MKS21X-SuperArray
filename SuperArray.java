@@ -6,10 +6,16 @@ public class SuperArray{
     si = size;
   }
   public SuperArray(){
-    String[] nums = new String[10];
-    data = nums;
+    data = new String[10];
     size = 0;
   }
+  public SuperArray(int si){
+	data = new String[si];
+	size = 0;}
+  public SuperArray(String[] s){
+	data = s;
+	size = 0;
+    }
   public void clear(){
     String[] n = new String[size];
     data = n;
@@ -18,12 +24,7 @@ public class SuperArray{
     return size;
   }
   public boolean isEmpty(){
-    for (int i=0;i<data.length-1;i++){
-      if(data[i]!=null){
-        return false;
-      }
-    }
-    return true;
+    return (size==0);
   }
   public boolean add(String element){
  	if (size()== data.length){
@@ -71,15 +72,14 @@ public class SuperArray{
     data[index]=element;
     return i;
   }
-  private void resize(){
-    String nums[]= new String[data.length+1];
-    for (int i =0; i<data.length;i++){
-      nums[i]=data[i];
-    }
-    data=nums;
-  }
 
-  }
+  private void resize(){
+    String[] nums = new String[data.length+10];
+    for (int i = 0; i < data.length; i++){
+	  nums[i]=data[i];}
+    data = nums;
+
+  }}
   /*
   public boolean contains(String element){
     for(int i=0;i<size;i++){
