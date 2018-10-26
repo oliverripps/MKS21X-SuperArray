@@ -79,7 +79,7 @@ public class SuperArray{
     data = nums;
     size = tempsize;
   }}
-  /*
+
   public boolean contains(String element){
     for(int i=0;i<size;i++){
       if (data[i]==element){
@@ -89,11 +89,14 @@ public class SuperArray{
     return false;
   }
   public void add(int index, String element){
-    for (int i=index; i<size;i++){
-      data[i+1]=data[i];
+    if (size == data.length){
+        resize();
     }
-    data[index]=element;
-  }
+    for(int i = size; i > index; i--){
+      data[i] = data[i-1];}
+      data[index] = element;
+      size++;
+   }
 
   public int indexOf(String element){
     int p = -1;
@@ -127,4 +130,4 @@ public class SuperArray{
   }
 
 
-}*/
+}
