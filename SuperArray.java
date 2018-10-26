@@ -78,16 +78,16 @@ public class SuperArray{
 	  nums[i]=data[i];}
     data = nums;
     size = tempsize;
-  }}
+  }
 
-  public boolean contains(String element){
+  /*public boolean contains(String element){
     for(int i=0;i<size;i++){
       if (data[i]==element){
         return true;
       }
     }
     return false;
-  }
+  }*/
   public void add(int index, String element){
     if (size == data.length){
         resize();
@@ -123,11 +123,12 @@ public class SuperArray{
     for (int i = index; i<size;i++){
       data[i]=data[i+1];
     }
+    size--;
     return r;
   }
-  public boolean remove(String element){
+  /*public boolean remove(String element){
 
-  }
+  }*/
 
 
 }
