@@ -132,9 +132,13 @@ public class SuperArray{
     size--;
     return r;
   }
-  /*public boolean remove(String element){
-
-  }*/
+  public boolean remove(String element) {
+    if( contains(element)) {
+      remove( indexOf(element));
+      return true;
+    }
+    return false;
+  }
 
 
 }
