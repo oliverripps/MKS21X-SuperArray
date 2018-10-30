@@ -88,8 +88,8 @@ public class SuperArray{
   return false;
 }
   public void add(int index, String element){
-    if (index < 0 || index > size){
-      System.out.println("Error");
+    if (index < 0 || index > this.size{
+      throw new IndexOutOfBoundsException();
     }
     else {
     if (size == data.length){
