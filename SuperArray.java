@@ -9,9 +9,16 @@ public class SuperArray{
     data = new String[10];
     size = 0;
   }
-  public SuperArray(int si){
-	data = new String[si];
-	size = 0;}
+  public SuperArray(int initialCompacity){
+	if (initialCompacity<0){
+    throw new IllegalArgumentException();
+  }
+  else {
+  data = new String[initialCompacity];
+	size = 0;
+}
+}
+
   public SuperArray(String[] s){
 	data = s;
 	size = 0;
@@ -60,12 +67,15 @@ public class SuperArray{
 
   public String get(int index){
     if (index < 0 || index >= size()){
-      return null;
+      throw new IndexOutOfBoundsException();
     }
     return data[index];
   }
 
   public String set(int index, String element){
+    if (index < 0 || index >= size()){
+      throw new IndexOutOfBoundsException();
+    }
     String i= data[index];
     data[index]=element;
     return i;
@@ -88,7 +98,7 @@ public class SuperArray{
   return false;
 }
   public void add(int index, String element){
-    if (index < 0 || index > this.size{
+    if (index < 0 || index > this.size){
       throw new IndexOutOfBoundsException();
     }
     else {
@@ -122,8 +132,8 @@ public class SuperArray{
     return p;
   }
   public String remove(int index){
-    if (index < 0 || index > size){
-      return "Error";
+    if (index < 0 || index >= size){
+      throw new IndexOutOfBoundsException();
     }
     String r = data[index];
     for (int i = index; i<size;i++){
