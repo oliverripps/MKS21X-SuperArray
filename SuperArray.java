@@ -50,7 +50,7 @@ public class SuperArray{
     for (int i=0; i<size;i++){
       r+=data[i];
       if (i!=size-1){
-        r+=",";}}
+        r+=", ";}}
     r+="]";
     return r;
   }
