@@ -19,13 +19,15 @@ public class SuperArray{
 }
 }
 
-  public SuperArray(String[] s){
+  /*public SuperArray(String[] s){
 	data = s;
 	size = 0;
-    }
+}*/
+
   public void clear(){
-    String[] n = new String[size];
-    data = n;
+    for (int n = 0; n < data.length; n++){
+           data[n] = null;
+       }
     size=0;
   }
   public int size(){
@@ -45,7 +47,7 @@ public class SuperArray{
 
   public String toString(){
     String r = "[";
-    if (this.size()==0){
+    if (size()==0){
       return "[]";}
     for (int i=0; i<size;i++){
       r+=data[i];
@@ -98,18 +100,17 @@ public class SuperArray{
   return false;
 }
   public void add(int index, String element){
-    if (index < 0 || index > this.size){
+    if (index < 0 || index > size){
       throw new IndexOutOfBoundsException();
     }
-    else {
     if (size == data.length){
         resize();
     }
-    for(int i = size; i > index; i--){
-      data[i] = data[i-1];}
+    for(int i = size-1; i >=index; i--){
+      data[i+1] = data[i];}
       data[index] = element;
       size++;
-   }}
+   }
 
   public int indexOf(String element){
     int p = -1;
@@ -136,7 +137,7 @@ public class SuperArray{
       throw new IndexOutOfBoundsException();
     }
     String r = data[index];
-    for (int i = index; i<size;i++){
+    for (int i = index; i<size-1;i++){
       data[i]=data[i+1];
     }
     size--;
